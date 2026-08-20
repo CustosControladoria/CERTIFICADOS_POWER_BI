@@ -227,6 +227,7 @@
     </div>
 
     <script>
+        // Função para gerar um código aleatório único a cada chamada
         function gerarCodigo() {
             return Math.floor(100000 + Math.random() * 900000).toString();
         }
@@ -239,19 +240,20 @@
                 return;
             }
 
+            // Gera um código único e aleatório para esta solicitação
             const codigoGerado = gerarCodigo();
             const nomeMaiusculo = nomeInput.toUpperCase();
 
-            // Monta a mensagem para enviar ao WhatsApp
-            const textoMensagem = encodeURIComponent(`Olá, meu nome é ${nomeMaiusculo}. Solicitei meu certificado e meu código de liberação é: ${codigoGerado}`);
+            // Mensagem formatada enviada diretamente ao seu WhatsApp contendo o código de validação
+            const textoMensagem = encodeURIComponent(`Olá! Sou o aluno ${nomeMaiusculo}. Quero solicitar a liberação do meu certificado.\n\nCódigo de Liberação do Sistema: ${codigoGerado}`);
             const urlWhatsapp = `https://wa.me/5582999284225?text=${textoMensagem}`;
 
-            // Abre o WhatsApp para enviar o código
+            // Abre o WhatsApp para o aluno te enviar a solicitação
             window.open(urlWhatsapp, '_blank');
 
-            // Pergunta o código de validação
+            // Solicita o código sem exibi-lo ao aluno na tela
             setTimeout(() => {
-                const codigoDigitado = prompt(`Solicitação enviada via WhatsApp!\n\nDigite abaixo o código (${codigoGerado}) para liberar a impressão:`);
+                const codigoDigitado = prompt(`Solicitação enviada ao WhatsApp do suporte!\n\nAguarde o recebimento do código de confirmação e digite-o abaixo para emitir o certificado:`);
 
                 if (codigoDigitado === null) {
                     return; // Aluno cancelou
@@ -263,9 +265,9 @@
                     document.getElementById('assinaturaAluno').innerText = nomeMaiusculo;
                     window.print();
                 } else {
-                    alert("Código incorreto! Digite o código correto fornecido para realizar a impressão.");
+                    alert("Código incorreto! Solicite o código válido ao suporte via WhatsApp.");
                 }
-            }, 500);
+            }, 600);
         }
     </script>
 </body>
