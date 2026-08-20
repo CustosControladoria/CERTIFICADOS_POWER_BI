@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=3.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificado de Conclusão - Contábil Sheets</title>
     <style>
         * {
@@ -36,6 +36,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             margin-right: 10px;
+            text-transform: uppercase; /* Força caixa alta na digitação */
         }
 
         .form-container button {
@@ -77,7 +78,7 @@
         .logo {
             max-width: 220px;
             height: auto;
-            margin-bottom: 35px; /* Aumentado para afastar do título */
+            margin-bottom: 35px;
         }
 
         .header h1 {
@@ -112,6 +113,7 @@
             min-width: 450px;
             padding-bottom: 5px;
             margin: 15px 0;
+            text-transform: uppercase; /* Garante a caixa alta no certificado */
         }
 
         .curso {
@@ -138,6 +140,10 @@
         .linha {
             border-top: 1px solid #000;
             margin-bottom: 8px;
+        }
+
+        #assinaturaAluno {
+            text-transform: uppercase; /* Garante a caixa alta na linha da assinatura */
         }
 
         /* Configuração de Impressão */
@@ -175,7 +181,6 @@
     <!-- Layout do Certificado -->
     <div class="certificado">
         <div class="header">
-            <!-- URL direta com a logo do Google Drive -->
             <img src="https://lh3.googleusercontent.com/d/1CHM8dmcBfzfmAz3c4s-DYGBr45iEKopz" alt="Contábil Sheets Logo" class="logo">
             <h1>CERTIFICADO</h1>
             <h2>DE CONCLUSÃO</h2>
@@ -183,10 +188,10 @@
 
         <div class="content">
             <p style="margin-top: 10px;">Certificamos que o aluno:</p>
-            <div class="nome-aluno" id="nomeExibido">[Nome do Aluno]</div>
+            <div class="nome-aluno" id="nomeExibido">[NOME DO ALUNO]</div>
             <p>
                 concluiu com êxito o curso livre de:<br>
-                <span class="curso">POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL</span>
+                <span class="curso">"POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL"</span>
                 com 100% de aproveitamento na data de 22/08/2026 a 26/08/2026<br>
                 com carga horária de 20 horas.
             </p>
@@ -199,23 +204,26 @@
             </div>
             <div class="assinatura-box">
                 <div class="linha"></div>
-                <p id="assinaturaAluno">Aluno</p>
+                <p id="assinaturaAluno">ALUNO</p>
             </div>
         </div>
     </div>
 
     <script>
         function gerarEImprimir() {
-            const nome = document.getElementById('nomeInput').value.trim();
+            const nomeInput = document.getElementById('nomeInput').value.trim();
             
-            if (nome === "") {
+            if (nomeInput === "") {
                 alert("Por favor, digite o nome completo do aluno.");
                 return;
             }
 
+            // Converte o nome digitado para caixa alta
+            const nomeMaiusculo = nomeInput.toUpperCase();
+
             // Atualiza os campos no certificado
-            document.getElementById('nomeExibido').innerText = nome;
-            document.getElementById('assinaturaAluno').innerText = nome;
+            document.getElementById('nomeExibido').innerText = nomeMaiusculo;
+            document.getElementById('assinaturaAluno').innerText = nomeMaiusculo;
 
             // Abre a janela de impressão
             window.print();
