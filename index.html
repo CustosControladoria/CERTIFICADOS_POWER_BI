@@ -4,15 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificado de Conclusão - Contábil Sheets</title>
-    
-    <!-- Biblioteca EmailJS para envio de e-mails -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // SUBSTITUA PELA SUA PUBLIC KEY DO EMAILJS
-            emailjs.init("SUA_PUBLIC_KEY");
-        })();
-    </script>
 
     <style>
         * {
@@ -32,30 +23,38 @@
         /* Formulário de Entrada */
         .form-container {
             background: #ffffff;
-            padding: 20px 30px;
+            padding: 25px 35px;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             margin-bottom: 30px;
             text-align: center;
-            max-width: 500px;
-            width: 100%;
+        }
+
+        .form-container h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 22px;
+            color: #000;
+        }
+
+        .input-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
         }
 
         .form-container input {
-            padding: 10px;
-            width: 100%;
+            padding: 10px 14px;
+            width: 280px;
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
-        .form-container input#nomeInput {
             text-transform: uppercase;
+            outline: none;
         }
 
-        .btn-geral {
+        .form-container button {
             padding: 10px 20px;
             font-size: 16px;
             background-color: #2e7d32;
@@ -64,20 +63,10 @@
             border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
-            width: 100%;
-            margin-bottom: 10px;
         }
 
-        .btn-geral:hover {
+        .form-container button:hover {
             background-color: #1b5e20;
-        }
-
-        .whatsapp-link {
-            display: inline-block;
-            margin-top: 10px;
-            color: #25d366;
-            text-decoration: none;
-            font-weight: bold;
         }
 
         /* Moldura do Certificado (A4 Deitado) */
@@ -200,22 +189,9 @@
     <!-- Formulário do Aluno -->
     <div class="form-container">
         <h2>Emissão de Certificado</h2>
-        
-        <!-- Passo 1: Digitar o nome e solicitar a senha -->
-        <div id="etapa1">
+        <div class="input-box">
             <input type="text" id="nomeInput" placeholder="Digite seu nome completo">
-            <button class="btn-geral" onclick="solicitarSenha()">Solicitar Liberação de Senha</button>
-        </div>
-
-        <!-- Passo 2: Digitar a senha recebida via WhatsApp -->
-        <div id="etapa2" style="display: none;">
-            <p style="font-size: 14px; color: #555;">Sua solicitação foi enviada! Solicite a senha de liberação através do WhatsApp.</p>
-            <input type="text" id="senhaInput" placeholder="Digite a senha fornecida">
-            <button class="btn-geral" onclick="validarEImprimir()">Imprimir Certificado</button>
-            <br>
-            <a href="https://wa.me/5582999284225?text=Olá,%20solicitei%20a%20liberação%20do%20meu%20certificado!" target="_blank" class="whatsapp-link">
-                📲 Falar com suporte no WhatsApp
-            </a>
+            <button id="btnGerar" onclick="processarEmissao()">Gerar e Imprimir</button>
         </div>
     </div>
 
@@ -224,6 +200,7 @@
         <div class="header">
             <img src="https://lh3.googleusercontent.com/d/1CHM8dmcBfzfmAz3c4s-DYGBr45iEKopz" alt="Contábil Sheets Logo" class="logo">
             <h1>CERTIFICADO</h1>
+            WhatsApp
             <h2>DE CONCLUSÃO</h2>
         </div>
 
@@ -251,63 +228,45 @@
     </div>
 
     <script>
-        let senhaGerada = "";
-
-        // Função para gerar senha aleatória de 6 caracteres
-        function gerarSenha() {
+        function gerarCodigo() {
             return Math.floor(100000 + Math.random() * 900000).toString();
         }
 
-        function solicitarSenha() {
-            const nome = document.getElementById('nomeInput').value.trim();
+        function processarEmissao() {
+            const nomeInput = document.getElementById('nomeInput').value.trim();
 
-            if (nome === "") {
+            if (nomeInput === "") {
                 alert("Por favor, digite seu nome completo.");
                 return;
             }
 
-            senhaGerada = gerarSenha();
+            const codigoGerado = gerarCodigo();
+            const nomeMaiusculo = nomeInput.toUpperCase();
 
-            // Parâmetros para o e-mail
-            const templateParams = {
-                aluno_nome: nome.toUpperCase(),
-                senha_acesso: senhaGerada,
-                to_email: 'ewerton.renato.franca@gmail.com'
-            };
+            // Monta a mensagem para enviar ao WhatsApp
+            const textoMensagem = encodeURIComponent(`Olá, meu nome é ${nomeMaiusculo}. Solicitei meu certificado e meu código de liberação é: ${codigoGerado}`);
+            const urlWhatsapp = `https://wa.me/5582999284225?text=${textoMensagem}`;
 
-            // Envia o e-mail usando EmailJS
-            // SUBSTITUA "SEU_SERVICE_ID" E "SEU_TEMPLATE_ID"
-            emailjs.send('SEU_SERVICE_ID', 'SEU_TEMPLATE_ID', templateParams)
-                .then(function(response) {
-                    alert("Solicitação enviada com sucesso! Entre em contato no WhatsApp para obter sua senha.");
-                    document.getElementById('etapa1').style.display = 'none';
-                    document.getElementById('etapa2').style.display = 'block';
-                }, function(error) {
-                    alert("Erro ao solicitar a senha. Tente novamente mais tarde.");
-                    console.error("Erro EmailJS:", error);
-                });
-        }
+            // Abre o WhatsApp para enviar o código
+            window.open(urlWhatsapp, '_blank');
 
-        function validarEImprimir() {
-            const senhaDigitada = document.getElementById('senhaInput').value.trim();
-            const nome = document.getElementById('nomeInput').value.trim().toUpperCase();
+            // Pergunta o código de validação
+            setTimeout(() => {
+                const codigoDigitado = prompt(`Solicitação enviada via WhatsApp!\n\nDigite abaixo o código (${codigoGerado}) para liberar a impressão:`);
 
-            if (senhaDigitada === "") {
-                alert("Por favor, digite a senha recebida.");
-                return;
-            }
+                if (codigoDigitado === null) {
+                    return; // Aluno cancelou
+                }
 
-            if (senhaDigitada !== senhaGerada) {
-                alert("Senha incorreta! Verifique com o suporte no WhatsApp.");
-                return;
-            }
-
-            // Atualiza os dados no certificado
-            document.getElementById('nomeExibido').innerText = nome;
-            document.getElementById('assinaturaAluno').innerText = nome;
-
-            // Abre a tela de impressão
-            window.print();
+                if (codigoDigitado.trim() === codigoGerado) {
+                    // Atualiza os dados no certificado e imprime
+                    document.getElementById('nomeExibido').innerText = nomeMaiusculo;
+                    document.getElementById('assinaturaAluno').innerText = nomeMaiusculo;
+                    window.print();
+                } else {
+                    alert("Código incorreto! Digite o código correto fornecido para realizar a impressão.");
+                }
+            }, 500);
         }
     </script>
 </body>
