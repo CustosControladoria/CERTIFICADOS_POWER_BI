@@ -161,7 +161,7 @@
             text-transform: uppercase;
         }
 
-        /* Configuração de Impressão */
+        /* Configuração de Impressão / Salvar em PDF */
         @media print {
             body {
                 background: none;
@@ -191,7 +191,7 @@
         <h2>Emissão de Certificado</h2>
         <div class="input-box">
             <input type="text" id="nomeInput" placeholder="Digite seu nome completo">
-            <button id="btnGerar" onclick="processarEmissao()">Gerar e Imprimir</button>
+            <button id="btnGerar" onclick="gerarEBaixarPDF()">Gerar e Baixar PDF</button>
         </div>
     </div>
 
@@ -221,18 +221,13 @@
             </div>
             <div class="assinatura-box">
                 <div class="linha"></div>
-                <p id="assinaturaAluno">ALUNO(A)</p>
+                <p id="assinaturaAluno">ALUNO</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Função para gerar um código numérico de 6 dígitos único por solicitação
-        function gerarCodigo() {
-            return Math.floor(100000 + Math.random() * 900000).toString();
-        }
-
-        function processarEmissao() {
+        function gerarEBaixarPDF() {
             const nomeInput = document.getElementById('nomeInput').value.trim();
 
             if (nomeInput === "") {
@@ -240,33 +235,14 @@
                 return;
             }
 
-            const codigoGerado = gerarCodigo();
             const nomeMaiusculo = nomeInput.toUpperCase();
 
-            // Formata o link para disparar SMS para o seu número +5582999284225
-            const mensagemSMS = encodeURIComponent(`ALUNO: ${nomeMaiusculo} - CODIGO DE LIBERACAO: ${codigoGerado}`);
-            const uriSMS = `sms:+5582999284225?body=${mensagemSMS}`;
+            // Atualiza os dados no certificado
+            document.getElementById('nomeExibido').innerText = nomeMaiusculo;
+            document.getElementById('assinaturaAluno').innerText = nomeMaiusculo;
 
-            // Dispara a solicitação de envio por SMS
-            window.location.href = uriSMS;
-
-            // Solicita que o aluno informe a senha recebida via suporte (WhatsApp)
-            setTimeout(() => {
-                const codigoDigitado = prompt(`Solicitação enviada por SMS!\n\nEntre em contato pelo WhatsApp (82 99928-4225) com o suporte, solicite o seu código de liberação e digite-o abaixo:`);
-
-                if (codigoDigitado === null) {
-                    return; // O aluno cancelou a ação
-                }
-
-                if (codigoDigitado.trim() === codigoGerado) {
-                    // Atualiza o nome e imprime
-                    document.getElementById('nomeExibido').innerText = nomeMaiusculo;
-                    document.getElementById('assinaturaAluno').innerText = nomeMaiusculo;
-                    window.print();
-                } else {
-                    alert("Código incorreto! Solicite o código de liberação válido ao suporte via WhatsApp.");
-                }
-            }, 600);
+            // Abre a janela para Salvar em PDF / Imprimir
+            window.print();
         }
     </script>
 </body>
