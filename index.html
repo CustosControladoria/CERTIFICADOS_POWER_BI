@@ -1,283 +1,224 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado de Conclusão - Contábil Sheets</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
-<title>BI_CUSTOS_ORCAMENTO</title>
+        body {
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        /* Formulário de Entrada */
+        .form-container {
+            background: #ffffff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
 
-<style>
+        .form-container input {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+        .form-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
 
-body{
-min-height:100vh;
-display:flex;
-justify-content:center;
-padding:25px 15px;
-background:
-linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
-url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1400&auto=format&fit=crop');
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-color:#fff;
-overflow-x:hidden;
-}
+        .form-container button:hover {
+            background-color: #1b5e20;
+        }
 
-.container{
-width:100%;
-max-width:420px;
-text-align:center;
-animation:fade 1.2s ease;
-}
+        /* Moldura do Certificado (A4 Deitado) */
+        .certificado {
+            width: 297mm;
+            height: 210mm;
+            background: #ffffff;
+            border: 10px solid #2e7d32;
+            padding: 30px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            position: relative;
+        }
 
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.profile{
-margin-top:10px;
-margin-bottom:25px;
-}
+        .logo {
+            max-width: 220px;
+            height: auto;
+            margin-bottom: 10px;
+        }
 
-.profile img{
-width:120px;
-height:120px;
-border-radius:50%;
-object-fit:cover;
-border:4px solid rgba(255,255,255,0.2);
-box-shadow:0 0 25px rgba(0,0,0,0.5);
-}
+        .header h1 {
+            font-size: 34px;
+            color: #1a1a1a;
+            margin: 5px 0 0 0;
+            letter-spacing: 2px;
+        }
 
-.profile h1{
-margin-top:18px;
-font-size:34px;
-font-weight:700;
-letter-spacing:1px;
-}
+        .header h2 {
+            font-size: 20px;
+            color: #2e7d32;
+            margin-top: 2px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
 
-.profile p{
-margin-top:8px;
-font-size:14px;
-color:#d0d0d0;
-}
+        .content {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
 
-.card{
-width:100%;
-background:rgba(0,0,0,0.88);
-border-radius:22px;
-padding:14px;
-margin-bottom:22px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-text-decoration:none;
-color:#fff;
-transition:0.35s;
-border:1px solid rgba(255,255,255,0.08);
-backdrop-filter:blur(8px);
-box-shadow:0 8px 25px rgba(0,0,0,0.45);
-position:relative;
-overflow:hidden;
-}
+        .nome-aluno {
+            font-size: 30px;
+            font-weight: bold;
+            color: #000;
+            border-bottom: 2px solid #2e7d32;
+            display: inline-block;
+            min-width: 450px;
+            padding-bottom: 5px;
+            margin: 15px 0;
+        }
 
-.card:hover{
-transform:translateY(-4px) scale(1.02);
-box-shadow:0 12px 30px rgba(0,0,0,0.6);
-}
+        .curso {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2e7d32;
+            display: block;
+            margin: 8px 0;
+        }
 
-.card::before{
-content:'';
-position:absolute;
-top:0;
-left:-80%;
-width:40%;
-height:100%;
-background:linear-gradient(
-120deg,
-transparent,
-rgba(255,255,255,0.18),
-transparent
-);
-transform:skewX(-20deg);
-transition:0.7s;
-}
+        /* Assinaturas */
+        .assinaturas {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+            margin-top: 20px;
+        }
 
-.card:hover::before{
-left:140%;
-}
+        .assinatura-box {
+            text-align: center;
+            width: 250px;
+        }
 
-.thumb{
-width:70px;
-height:70px;
-border-radius:14px;
-object-fit:cover;
-flex-shrink:0;
-}
+        .linha {
+            border-top: 1px solid #000;
+            margin-bottom: 8px;
+        }
 
-.card-title{
-flex:1;
-text-align:center;
-font-size:24px;
-font-weight:700;
-padding:0 12px;
-}
+        /* Configuração de Impressão */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+            }
 
-.menu{
-font-size:28px;
-opacity:0.6;
-padding-right:5px;
-}
+            .form-container {
+                display: none;
+            }
 
-.footer{
-margin-top:25px;
-font-size:12px;
-color:#cfcfcf;
-opacity:0.8;
-}
+            .certificado {
+                box-shadow: none;
+                page-break-after: always;
+            }
 
-@media(max-width:480px){
-
-.profile h1{
-font-size:28px;
-}
-
-.card-title{
-font-size:19px;
-}
-
-.card{
-padding:12px;
-}
-
-.thumb{
-width:62px;
-height:62px;
-}
-
-}
-
-</style>
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <!-- Formulário do Aluno -->
+    <div class="form-container">
+        <h2>Emissão de Certificado</h2>
+        <input type="text" id="nomeInput" placeholder="Digite o nome completo do aluno">
+        <button onclick="gerarEImprimir()">Gerar e Imprimir</button>
+    </div>
 
-<div class="profile">
+    <!-- Layout do Certificado -->
+    <div class="certificado">
+        <div class="header">
+            <!-- Insira a imagem da logo na mesma pasta do repositório ou cole a URL aqui -->
+            <img src="logo.png" alt="Contábil Sheets Logo" class="logo">
+            <h1>CERTIFICADO</h1>
+            <h2>DE CONCLUSÃO</h2>
+        </div>
 
-<img src="https://cdn-icons-png.flaticon.com/512/869/869869.png">
+        <div class="content">
+            <p>Certificamos que o aluno:</p>
+            <div class="nome-aluno" id="nomeExibido">[Nome do Aluno]</div>
+            <p>
+                concluiu com êxito o curso livre de:<br>
+                <span class="curso">"POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL"</span>
+                com 100% de aproveitamento na data de 22/08/2026 a 26/08/2026<br>
+                com carga horária de 20 horas.
+            </p>
+        </div>
 
-<h1>BI_CUSTOS_ORCAMENTO</h1>
+        <div class="assinaturas">
+            <div class="assinatura-box">
+                <div class="linha"></div>
+                <p>Contábil Sheets</p>
+            </div>
+            <div class="assinatura-box">
+                <div class="linha"></div>
+                <p id="assinaturaAluno">Aluno</p>
+            </div>
+        </div>
+    </div>
 
-<p>PAINÉIS POWER BI • CONTROLADORIA AGRÍCOLA</p>
+    <script>
+        function gerarEImprimir() {
+            const nome = document.getElementById('nomeInput').value.trim();
+            
+            if (nome === "") {
+                alert("Por favor, digite o nome completo do aluno.");
+                return;
+            }
 
-</div>
+            // Atualiza os campos no certificado
+            document.getElementById('nomeExibido').innerText = nome;
+            document.getElementById('assinaturaAluno').innerText = nome;
 
-<!-- PAINEL LOCAÇÃO -->
-<a href="#" class="card" onclick="abrirLocacao(event)">
-
-<img 
-class="thumb"
-src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=400&auto=format&fit=crop"
->
-
-<div class="card-title">
-PAINEL LOCAÇÃO
-</div>
-
-<div class="menu">
-⋮
-</div>
-
-</a>
-
-<!-- PAINEL QL SALARIO -->
-<a href="#" class="card" onclick="abrirQL(event)">
-
-<img 
-class="thumb"
-src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=400&auto=format&fit=crop"
->
-
-<div class="card-title">
-PAINEL QL SALARIO
-</div>
-
-<div class="menu">
-⋮
-</div>
-
-</a>
-
-<div class="footer">
-© 2026 • BI_CUSTOS_ORCAMENTO
-</div>
-
-</div>
-
-<script>
-
-/* 🔐 PAINEL LOCAÇÃO */
-function abrirLocacao(event){
-
-event.preventDefault();
-
-const senha = prompt("Digite a senha:");
-
-if(senha === "123456"){
-
-window.open(
-"https://app.powerbi.com/view?r=eyJrIjoiMDExNWJhMTctODAzNy00NjcyLTk2MDItYmQ0ZDc0NjdlNGRhIiwidCI6ImZiNGQ5Y2Y0LWY0M2EtNDBjMy1iYWQ0LWIxMzI3OGRjODUxYSJ9",
-"_blank"
-);
-
-}else if(senha !== null){
-
-alert("Senha incorreta!");
-
-}
-
-}
-
-/* 🔐 PAINEL QL SALARIO */
-function abrirQL(event){
-
-event.preventDefault();
-
-const senha = prompt("Digite a senha:");
-
-if(senha === "123456"){
-
-window.open(
-"https://app.powerbi.com/view?r=eyJrIjoiMzEyZjQwMDAtMzhiNS00YzhmLTk1MWUtNWViZWU4NWY0NWU3IiwidCI6ImZiNGQ5Y2Y0LWY0M2EtNDBjMy1iYWQ0LWIxMzI3OGRjODUxYSJ9&pageName=ReportSection0dee82c9640058e52188",
-"_blank"
-);
-
-}else if(senha !== null){
-
-alert("Senha incorreta!");
-
-}
-
-}
-
-</script>
-
+            // Abre a janela de impressão
+            window.print();
+        }
+    </script>
 </body>
 </html>
