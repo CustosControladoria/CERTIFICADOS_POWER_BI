@@ -227,7 +227,7 @@
     </div>
 
     <script>
-        // Função para gerar um código aleatório único a cada chamada
+        // Função para gerar um código numérico de 6 dígitos único por solicitação
         function gerarCodigo() {
             return Math.floor(100000 + Math.random() * 900000).toString();
         }
@@ -240,32 +240,31 @@
                 return;
             }
 
-            // Gera um código único e aleatório para esta solicitação
             const codigoGerado = gerarCodigo();
             const nomeMaiusculo = nomeInput.toUpperCase();
 
-            // Mensagem formatada enviada diretamente ao seu WhatsApp contendo o código de validação
-            const textoMensagem = encodeURIComponent(`Olá! Sou o aluno ${nomeMaiusculo}. Quero solicitar a liberação do meu certificado.\n\nCódigo de Liberação do Sistema: ${codigoGerado}`);
-            const urlWhatsapp = `https://wa.me/5582999284225?text=${textoMensagem}`;
+            // Formata o link para disparar SMS para o seu número +5582999284225
+            const mensagemSMS = encodeURIComponent(`ALUNO: ${nomeMaiusculo} - CODIGO DE LIBERACAO: ${codigoGerado}`);
+            const uriSMS = `sms:+5582999284225?body=${mensagemSMS}`;
 
-            // Abre o WhatsApp para o aluno te enviar a solicitação
-            window.open(urlWhatsapp, '_blank');
+            // Dispara a solicitação de envio por SMS
+            window.location.href = uriSMS;
 
-            // Solicita o código sem exibi-lo ao aluno na tela
+            // Solicita que o aluno informe a senha recebida via suporte (WhatsApp)
             setTimeout(() => {
-                const codigoDigitado = prompt(`Solicitação enviada ao WhatsApp do suporte!\n\nAguarde o recebimento do código de confirmação e digite-o abaixo para emitir o certificado:`);
+                const codigoDigitado = prompt(`Solicitação enviada por SMS!\n\nEntre em contato pelo WhatsApp (82 99928-4225) com o suporte, solicite o seu código de liberação e digite-o abaixo:`);
 
                 if (codigoDigitado === null) {
-                    return; // Aluno cancelou
+                    return; // O aluno cancelou a ação
                 }
 
                 if (codigoDigitado.trim() === codigoGerado) {
-                    // Atualiza os dados no certificado e imprime
+                    // Atualiza o nome e imprime
                     document.getElementById('nomeExibido').innerText = nomeMaiusculo;
                     document.getElementById('assinaturaAluno').innerText = nomeMaiusculo;
                     window.print();
                 } else {
-                    alert("Código incorreto! Solicite o código válido ao suporte via WhatsApp.");
+                    alert("Código incorreto! Solicite o código de liberação válido ao suporte via WhatsApp.");
                 }
             }, 600);
         }
