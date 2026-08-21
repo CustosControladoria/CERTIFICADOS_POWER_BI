@@ -139,30 +139,40 @@
             margin: 8px 0;
         }
 
-        /* Assinaturas */
+        /* Assinaturas Corrigidas */
         .assinaturas {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
             padding: 0 50px;
-            margin-top: 20px;
+            margin-top: 10px;
         }
 
         .assinatura-box {
             text-align: center;
-            width: 250px;
+            width: 280px;
         }
 
         .assinatura-box p {
-            margin: 3px 0;
+            margin: 2px 0;
+            font-size: 15px;
+            color: #000000;
+        }
+
+        .nome-assinatura-aluno {
+            font-weight: normal;
+            text-transform: uppercase;
+        }
+
+        .rotulo-aluno {
+            font-weight: normal;
+            text-transform: uppercase;
         }
 
         .linha {
             border-top: 1px solid #000;
             margin-bottom: 8px;
-        }
-
-        #assinaturaAluno {
-            text-transform: uppercase;
+            width: 100%;
         }
 
         /* Configuração de Impressão / Salvar em PDF */
@@ -226,7 +236,8 @@
             </div>
             <div class="assinatura-box">
                 <div class="linha"></div>
-                <p id="assinaturaAluno">ALUNO</p>
+                <p id="assinaturaAluno" class="nome-assinatura-aluno">SEU NOME COMPLETO</p>
+                <p class="rotulo-aluno">ALUNO</p>
             </div>
         </div>
     </div>
@@ -242,7 +253,7 @@
 
             const nomeMaiusculo = nomeInput.toUpperCase();
 
-            // Atualiza os dados no certificado
+            // Atualiza os dados no certificado e no campo de assinatura
             document.getElementById('nomeExibido').innerText = nomeMaiusculo;
             document.getElementById('assinaturaAluno').innerText = nomeMaiusculo;
 
