@@ -139,29 +139,31 @@
             margin: 8px 0;
         }
 
-        /* Assinaturas Corrigidas */
+        /* Assinaturas Corrigidas sem Quebra de Linha */
         .assinaturas {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 0 50px;
+            padding: 0 30px;
             margin-top: 10px;
         }
 
         .assinatura-box {
             text-align: center;
-            width: 280px;
+            width: 350px; /* Largura expandida para suportar nomes longos */
         }
 
         .assinatura-box p {
-            margin: 2px 0;
-            font-size: 15px;
+            margin: 3px 0;
+            font-size: 14px;
             color: #000000;
+            white-space: nowrap; /* Força o texto a ficar em uma única linha */
         }
 
         .nome-assinatura-aluno {
             font-weight: normal;
             text-transform: uppercase;
+            white-space: nowrap; /* Garante linha única no nome do aluno */
         }
 
         .rotulo-aluno {
