@@ -75,13 +75,14 @@
             height: 210mm;
             background: #ffffff;
             border: 10px solid #2e7d32;
-            padding: 30px 40px;
+            padding: 30px 40px 0 40px; /* Padding inferior zero para acomodar a barra */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             text-align: center;
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
             position: relative;
+            overflow: hidden;
         }
 
         .header {
@@ -139,31 +140,32 @@
             margin: 8px 0;
         }
 
-        /* Assinaturas Corrigidas sem Quebra de Linha */
+        /* Assinaturas */
         .assinaturas {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             padding: 0 30px;
             margin-top: 10px;
+            margin-bottom: 15px;
         }
 
         .assinatura-box {
             text-align: center;
-            width: 350px; /* Largura expandida para suportar nomes longos */
+            width: 350px;
         }
 
         .assinatura-box p {
             margin: 3px 0;
             font-size: 14px;
             color: #000000;
-            white-space: nowrap; /* Força o texto a ficar em uma única linha */
+            white-space: nowrap;
         }
 
         .nome-assinatura-aluno {
             font-weight: normal;
             text-transform: uppercase;
-            white-space: nowrap; /* Garante linha única no nome do aluno */
+            white-space: nowrap;
         }
 
         .rotulo-aluno {
@@ -175,6 +177,18 @@
             border-top: 1px solid #000;
             margin-bottom: 8px;
             width: 100%;
+        }
+
+        /* Barra Verde de Rodapé */
+        .rodapé-barra {
+            background-color: #2e7d32;
+            color: #ffffff;
+            font-size: 9pt;
+            padding: 8px 20px;
+            margin-left: -40px;
+            margin-right: -40px;
+            text-align: right;
+            white-space: nowrap;
         }
 
         /* Configuração de Impressão / Salvar em PDF */
@@ -230,16 +244,23 @@
             </p>
         </div>
 
-        <div class="assinaturas">
-            <div class="assinatura-box">
-                <div class="linha"></div>
-                <p>EWERTON RENATO DA SILVA DE FRANCA</p>
-                <p>CPF: 084.713.784-85</p>
+        <div>
+            <div class="assinaturas">
+                <div class="assinatura-box">
+                    <div class="linha"></div>
+                    <p>EWERTON RENATO DA SILVA DE FRANCA</p>
+                    <p>CPF: 084.713.784-85</p>
+                </div>
+                <div class="assinatura-box">
+                    <div class="linha"></div>
+                    <p id="assinaturaAluno" class="nome-assinatura-aluno">SEU NOME COMPLETO</p>
+                    <p class="rotulo-aluno">ALUNO(A)</p>
+                </div>
             </div>
-            <div class="assinatura-box">
-                <div class="linha"></div>
-                <p id="assinaturaAluno" class="nome-assinatura-aluno">SEU NOME COMPLETO</p>
-                <p class="rotulo-aluno">ALUNO(A)</p>
+
+            <!-- Barra Verde com Endereço -->
+            <div class="rodapé-barra">
+                Cidade: São Miguel dos Campos - Endereço: Esther Soares Torres I, Qd A, 192 - CEP: 57245-052
             </div>
         </div>
     </div>
