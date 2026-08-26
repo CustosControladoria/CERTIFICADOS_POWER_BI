@@ -179,20 +179,27 @@
             width: 100%;
         }
 
-        /* Barra Verde de Rodapé Alinhada à Esquerda */
+        /* Barra Verde de Rodapé com Forçamento de Cor para Impressão/PDF */
         .rodapé-barra {
-            background-color: #2e7d32;
-            color: #ffffff;
+            background-color: #2e7d32 !important;
+            color: #ffffff !important;
             font-size: 9pt;
             padding: 8px 20px;
             margin-left: -40px;
             margin-right: -40px;
             text-align: left;
             white-space: nowrap;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
         /* Configuração de Impressão / Salvar em PDF */
         @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
             body {
                 background: none;
                 padding: 0;
