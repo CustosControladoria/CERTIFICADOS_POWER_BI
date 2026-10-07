@@ -23,17 +23,17 @@
         /* Formulário de Entrada */
         .form-container {
             background: #ffffff;
-            padding: 25px 35px;
+            padding: 20px 30px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: center;
         }
 
         .form-container h2 {
             margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 22px;
+            margin-bottom: 15px;
+            font-size: 18px;
             color: #000;
         }
 
@@ -41,13 +41,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .form-container input {
-            padding: 10px 14px;
-            width: 280px;
-            font-size: 16px;
+            padding: 8px 12px;
+            width: 250px;
+            font-size: 14px;
             border: 1px solid #ccc;
             border-radius: 4px;
             text-transform: uppercase;
@@ -55,8 +55,8 @@
         }
 
         .form-container button {
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 8px 16px;
+            font-size: 14px;
             background-color: #2e7d32;
             color: white;
             border: none;
@@ -69,13 +69,13 @@
             background-color: #1b5e20;
         }
 
-        /* Moldura do Certificado (A4 Deitado) */
+        /* Moldura do Certificado (50% do A4 Landscape / Tamanho A5 Deitado) */
         .certificado {
-            width: 297mm;
-            height: 210mm;
+            width: 210mm;
+            height: 148mm;
             background: #ffffff;
-            border: 10px solid #2e7d32;
-            padding: 30px 40px 0 40px;
+            border: 6px solid #2e7d32;
+            padding: 15px 25px 0 25px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -92,52 +92,52 @@
         }
 
         .logo {
-            max-width: 220px;
+            max-width: 140px;
             height: auto;
-            margin-bottom: 35px;
+            margin-bottom: 12px;
         }
 
         .header h1 {
-            font-size: 34px;
+            font-size: 22px;
             color: #1a1a1a;
             margin: 0;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
         }
 
         .header h2 {
-            font-size: 20px;
+            font-size: 13px;
             color: #2e7d32;
-            margin-top: 2px;
+            margin-top: 1px;
             margin-bottom: 0;
             font-weight: bold;
             letter-spacing: 1px;
         }
 
         .content {
-            font-size: 18px;
+            font-size: 12px;
             color: #333;
-            line-height: 1.6;
-            margin: 5px 0;
+            line-height: 1.4;
+            margin: 2px 0;
         }
 
         .nome-aluno {
-            font-size: 30px;
+            font-size: 19px;
             font-weight: bold;
             color: #000;
             border-bottom: 2px solid #2e7d32;
             display: inline-block;
-            min-width: 450px;
-            padding-bottom: 5px;
-            margin: 15px 0;
+            min-width: 300px;
+            padding-bottom: 2px;
+            margin: 8px 0;
             text-transform: uppercase;
         }
 
         .curso {
-            font-size: 22px;
+            font-size: 14px;
             font-weight: bold;
             color: #2e7d32;
             display: block;
-            margin: 8px 0;
+            margin: 4px 0;
         }
 
         /* Assinaturas */
@@ -145,19 +145,19 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 0 30px;
-            margin-top: 10px;
-            margin-bottom: 15px;
+            padding: 0 15px;
+            margin-top: 5px;
+            margin-bottom: 10px;
         }
 
         .assinatura-box {
             text-align: center;
-            width: 350px;
+            width: 230px;
         }
 
         .assinatura-box p {
-            margin: 3px 0;
-            font-size: 14px;
+            margin: 2px 0;
+            font-size: 9.5px;
             color: #000000;
             white-space: nowrap;
         }
@@ -175,18 +175,18 @@
 
         .linha {
             border-top: 1px solid #000;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             width: 100%;
         }
 
-        /* Barra Verde de Rodapé com Forçamento de Cor para Impressão/PDF */
+        /* Barra Verde de Rodapé Alinhada à Esquerda */
         .rodapé-barra {
             background-color: #2e7d32 !important;
             color: #ffffff !important;
-            font-size: 9pt;
-            padding: 8px 20px;
-            margin-left: -40px;
-            margin-right: -40px;
+            font-size: 6.5pt;
+            padding: 5px 15px;
+            margin-left: -25px;
+            margin-right: -25px;
             text-align: left;
             white-space: nowrap;
             -webkit-print-color-adjust: exact;
@@ -215,7 +215,7 @@
             }
 
             @page {
-                size: A4 landscape;
+                size: 210mm 148mm;
                 margin: 0;
             }
         }
@@ -241,7 +241,7 @@
         </div>
 
         <div class="content">
-            <p style="margin-top: 10px;">Certificamos que o aluno:</p>
+            <p style="margin-top: 4px;">Certificamos que o aluno:</p>
             <div class="nome-aluno" id="nomeExibido">[NOME DO ALUNO]</div>
             <p>
                 concluiu com êxito o curso livre de:<br>
