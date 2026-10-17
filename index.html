@@ -88,14 +88,14 @@
 
         /* Painel Lateral Dashboard Power BI em Tons de Verde */
         .barra-lateral-pbi {
-            width: 44mm;
+            width: 46mm;
             height: 100%;
             background: #0b2b10;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            padding: 8px 6px;
+            padding: 6px 5px;
             box-shadow: 2px 0 6px rgba(0,0,0,0.25);
             border-right: 2px solid #2e7d32;
             flex-shrink: 0;
@@ -110,10 +110,10 @@
             background: rgba(14, 48, 20, 0.9);
             border: 1px solid #4caf50;
             border-radius: 6px;
-            padding: 6px;
+            padding: 5px 4px;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             box-shadow: inset 0 0 8px rgba(76, 175, 80, 0.2);
         }
@@ -121,6 +121,75 @@
         .svg-grafico {
             width: 100%;
             height: auto;
+        }
+
+        /* Logo Power BI na Barra Lateral */
+        .pbi-logo-box {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 4px 6px;
+            border-radius: 4px;
+            border: 1px solid #f2c811;
+        }
+        .pbi-bar {
+            width: 4px;
+            background: #f2c811;
+            border-radius: 1px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Selo Circular de Autenticidade */
+        .selo-autenticidade {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px dashed #f2c811;
+            background: radial-gradient(circle, #2e7d32 0%, #0b2b10 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 4pt;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(242, 200, 17, 0.5);
+            line-height: 1.1;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .selo-autenticidade span {
+            color: #f2c811;
+            font-size: 3.5pt;
+        }
+
+        /* Mini KPIs (Cartões de Métricas) */
+        .kpi-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+        .kpi-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid #2e7d32;
+            border-radius: 3px;
+            padding: 2px 3px;
+            text-align: center;
+        }
+        .kpi-label {
+            font-size: 4.5pt;
+            color: #81c784;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .kpi-valor {
+            font-size: 6.5pt;
+            color: #ffffff;
+            font-weight: bold;
         }
 
         /* Conteúdo Principal à Direita da Barra */
@@ -131,30 +200,59 @@
             justify-content: space-between;
             text-align: center;
             height: 100%;
-            padding: 12px 18px 0 15px;
+            padding: 10px 14px 0 12px;
+            position: relative;
+        }
+
+        /* QR Code & Validação no Canto Superior Direito */
+        .validacao-box {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-align: right;
+        }
+        .validacao-texto {
+            font-size: 5pt;
+            color: #555555;
+            line-height: 1.2;
+        }
+        .validacao-codigo {
+            font-weight: bold;
+            color: #2e7d32;
+        }
+        .qrcode-img {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #2e7d32;
+            border-radius: 2px;
+            padding: 1px;
         }
 
         .header {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 2px;
         }
 
         .logo {
-            max-width: 120px;
+            max-width: 110px;
             height: auto;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .header h1 {
-            font-size: 19px;
+            font-size: 18px;
             color: #1a1a1a;
             margin: 0;
             letter-spacing: 1.5px;
         }
 
         .header h2 {
-            font-size: 11px;
+            font-size: 10.5px;
             color: #2e7d32;
             margin-top: 1px;
             margin-bottom: 0;
@@ -162,24 +260,62 @@
             letter-spacing: 1px;
         }
 
-        /* Texto do Certificado Ajustado */
-        .content-justificado {
-            font-size: 11px;
-            color: #333333;
-            line-height: 1.6;
-            text-align: justify;
-            margin: 12px 8px;
+        /* Destaque / Faixa Elegante do Nome do Aluno */
+        .faixa-nome-container {
+            margin: 8px 0 4px 0;
+            display: flex;
+            justify-content: center;
         }
-
-        .nome-aluno-inline {
+        .faixa-nome {
+            background: #f4fbf4;
+            border: 1.5px solid #2e7d32;
+            border-radius: 4px;
+            padding: 4px 18px;
+            display: inline-block;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        .nome-aluno-destaque {
+            font-size: 16px;
             font-weight: bold;
             color: #000000;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Texto do Certificado Justificado */
+        .content-justificado {
+            font-size: 9.5px;
+            color: #333333;
+            line-height: 1.5;
+            text-align: justify;
+            margin: 4px 5px;
         }
 
         .curso-inline {
             font-weight: bold;
             color: #2e7d32;
+        }
+
+        /* Resumo de Competências Adquiridas */
+        .competencias-container {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin: 4px 0;
+        }
+        .competencia-chip {
+            background-color: #2e7d32;
+            color: #ffffff;
+            font-size: 6pt;
+            font-weight: bold;
+            padding: 3px 6px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
         }
 
         /* Assinaturas */
@@ -188,8 +324,8 @@
             justify-content: space-between;
             align-items: flex-start;
             padding: 0 10px;
-            margin-top: 4px;
-            margin-bottom: 8px;
+            margin-top: 2px;
+            margin-bottom: 6px;
         }
 
         .assinatura-box {
@@ -198,8 +334,8 @@
         }
 
         .assinatura-box p {
-            margin: 2px 0;
-            font-size: 8.5px;
+            margin: 1px 0;
+            font-size: 8px;
             color: #000000;
             white-space: nowrap;
         }
@@ -217,7 +353,7 @@
 
         .linha {
             border-top: 1px solid #000;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
             width: 100%;
         }
 
@@ -262,10 +398,10 @@
         .rodapé-barra {
             background-color: #2e7d32 !important;
             color: #ffffff !important;
-            font-size: 6pt;
-            padding: 4px 10px;
-            margin-left: -15px;
-            margin-right: -18px;
+            font-size: 5.5pt;
+            padding: 3px 10px;
+            margin-left: -12px;
+            margin-right: -14px;
             text-align: left;
             white-space: nowrap;
             -webkit-print-color-adjust: exact;
@@ -314,63 +450,107 @@
 
     <!-- PÁGINA 1: CERTIFICADO (FRENTE) -->
     <div class="certificado">
-        <!-- PAINEL LATERAL DASHBOARD POWER BI (VERDE) -->
+        <!-- PAINEL LATERAL DASHBOARD POWER BI -->
         <div class="barra-lateral-pbi">
             <div class="dashboard-card">
+                <!-- Logo Power BI -->
+                <div class="pbi-logo-box" title="Power BI">
+                    <div class="pbi-bar" style="height: 6px;"></div>
+                    <div class="pbi-bar" style="height: 11px;"></div>
+                    <div class="pbi-bar" style="height: 16px;"></div>
+                </div>
+
                 <!-- Gráfico de Linhas sobre Colunas -->
-                <svg class="svg-grafico" viewBox="0 0 100 70">
+                <svg class="svg-grafico" viewBox="0 0 100 55">
                     <line x1="5" y1="5" x2="95" y2="5" stroke="#1b4d20" stroke-width="0.5" />
                     <line x1="5" y1="20" x2="95" y2="20" stroke="#1b4d20" stroke-width="0.5" />
                     <line x1="5" y1="35" x2="95" y2="35" stroke="#1b4d20" stroke-width="0.5" />
-                    <line x1="5" y1="50" x2="95" y2="50" stroke="#1b4d20" stroke-width="0.5" />
                     
-                    <!-- Colunas Verdes -->
-                    <rect x="10" y="45" width="7" height="15" fill="#1e5e27" />
-                    <rect x="22" y="38" width="7" height="22" fill="#1e5e27" />
-                    <rect x="34" y="30" width="7" height="30" fill="#1e5e27" />
-                    <rect x="46" y="40" width="7" height="20" fill="#1e5e27" />
-                    <rect x="58" y="25" width="7" height="35" fill="#1e5e27" />
-                    <rect x="70" y="15" width="7" height="45" fill="#2e7d32" />
-                    <rect x="82" y="18" width="7" height="42" fill="#2e7d32" />
+                    <rect x="10" y="30" width="7" height="15" fill="#1e5e27" />
+                    <rect x="22" y="23" width="7" height="22" fill="#1e5e27" />
+                    <rect x="34" y="15" width="7" height="30" fill="#1e5e27" />
+                    <rect x="46" y="25" width="7" height="20" fill="#1e5e27" />
+                    <rect x="58" y="10" width="7" height="35" fill="#1e5e27" />
+                    <rect x="70" y="5" width="7" height="40" fill="#2e7d32" />
+                    <rect x="82" y="8" width="7" height="37" fill="#2e7d32" />
 
-                    <!-- Linha do Gráfico -->
-                    <polyline points="13,42 25,32 37,36 49,26 61,18 73,10 85,22 93,6" fill="none" stroke="#66bb6a" stroke-width="2" />
-                    <circle cx="13" cy="42" r="2" fill="#81c784" />
-                    <circle cx="25" cy="32" r="2" fill="#81c784" />
-                    <circle cx="37" cy="36" r="2" fill="#81c784" />
-                    <circle cx="49" cy="26" r="2" fill="#81c784" />
-                    <circle cx="61" cy="18" r="2" fill="#81c784" />
-                    <circle cx="73" cy="10" r="2" fill="#81c784" />
-                    <circle cx="85" cy="22" r="2" fill="#81c784" />
-                    <circle cx="93" cy="6" r="2" fill="#81c784" />
+                    <polyline points="13,27 25,17 37,21 49,11 61,8 73,3 85,15 93,4" fill="none" stroke="#66bb6a" stroke-width="2" />
+                    <circle cx="13" cy="27" r="1.5" fill="#81c784" />
+                    <circle cx="25" cy="17" r="1.5" fill="#81c784" />
+                    <circle cx="37" cy="21" r="1.5" fill="#81c784" />
+                    <circle cx="49" cy="11" r="1.5" fill="#81c784" />
+                    <circle cx="61" cy="8" r="1.5" fill="#81c784" />
+                    <circle cx="73" cy="3" r="1.5" fill="#81c784" />
+                    <circle cx="85" cy="15" r="1.5" fill="#81c784" />
                 </svg>
 
-                <div style="width: 100%; height: 1px; background: #2e7d32; margin: 4px 0;"></div>
+                <!-- Selo de Autenticidade -->
+                <div class="selo-autenticidade">
+                    CERTIFICADO
+                    <span>VERIFICADO</span>
+                </div>
 
-                <!-- Gráfico de Rosca/Pizza + Barras -->
-                <svg class="svg-grafico" viewBox="0 0 100 50">
-                    <rect x="5" y="35" width="6" height="10" fill="#1e5e27" />
-                    <rect x="14" y="28" width="6" height="17" fill="#1e5e27" />
-                    <rect x="23" y="20" width="6" height="25" fill="#2e7d32" />
-                    <rect x="32" y="12" width="6" height="33" fill="#66bb6a" />
+                <!-- Mini KPIs -->
+                <div class="kpi-container">
+                    <div class="kpi-card">
+                        <div class="kpi-label">Carga Horária</div>
+                        <div class="kpi-valor">20 Horas</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">Modalidade</div>
+                        <div class="kpi-valor">REMOTO</div>
+                    </div>
+                </div>
 
-                    <path d="M 72 25 L 72 5 A 20 20 0 0 1 92 25 Z" fill="#81c784" />
-                    <path d="M 72 25 L 92 25 A 20 20 0 0 1 80 44 Z" fill="#4caf50" />
-                    <path d="M 72 25 L 80 44 A 20 20 0 1 1 72 5 Z" fill="#1b5e20" />
-                    <circle cx="72" cy="25" r="9" fill="#0e3014" />
+                <!-- Gráfico de Rosca/Pizza -->
+                <svg class="svg-grafico" viewBox="0 0 100 40">
+                    <rect x="5" y="25" width="5" height="10" fill="#1e5e27" />
+                    <rect x="13" y="18" width="5" height="17" fill="#1e5e27" />
+                    <rect x="21" y="10" width="5" height="25" fill="#2e7d32" />
+
+                    <path d="M 72 20 L 72 3 A 17 17 0 0 1 89 20 Z" fill="#81c784" />
+                    <path d="M 72 20 L 89 20 A 17 17 0 0 1 78 36 Z" fill="#4caf50" />
+                    <path d="M 72 20 L 78 36 A 17 17 0 1 1 72 3 Z" fill="#1b5e20" />
+                    <circle cx="72" cy="20" r="7" fill="#0e3014" />
                 </svg>
             </div>
         </div>
 
         <div class="corpo-certificado">
+            <!-- QR Code de Validação -->
+            <div class="validacao-box">
+                <div class="validacao-texto">
+                    Autenticidade Verificada<br>
+                    <span class="validacao-codigo">CS-2026-PBI-8842</span>
+                </div>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=CS-2026-PBI-8842" alt="QR Code" class="qrcode-img">
+            </div>
+
             <div class="header">
                 <img src="https://lh3.googleusercontent.com/d/1CHM8dmcBfzfmAz3c4s-DYGBr45iEKopz" alt="Contábil Sheets Logo" class="logo">
                 <h1>CERTIFICADO</h1>
                 <h2>DE CONCLUSÃO</h2>
             </div>
 
+            <p style="font-size: 8.5pt; color: #555; margin: 2px 0 -4px 0;">Certificamos para os devidos fins que o participante:</p>
+
+            <!-- Destaque do Nome em Moldura -->
+            <div class="faixa-nome-container">
+                <div class="faixa-nome">
+                    <span class="nome-aluno-destaque" id="nomeExibido">[NOME DO ALUNO]</span>
+                </div>
+            </div>
+
             <div class="content-justificado">
-                Certificamos que <span class="nome-aluno-inline" id="nomeExibido">[NOME DO ALUNO]</span> concluiu com êxito o curso de <span class="curso-inline">POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL</span> com 100% de aproveitamento no período de 22/08/2026 a 26/08/2026 com carga horária de 20 horas.
+                concluiu com êxito e aproveitamento de 100% o curso de capacitação profissional em <span class="curso-inline">POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL</span>, realizado no período de 22/08/2026 a 26/08/2026, cumprindo integralmente a carga horária de 20 horas.
+            </div>
+
+            <!-- Chips de Resumo de Competências Adquiridas -->
+            <div class="competencias-container">
+                <div class="competencia-chip">✔ Power Query & Tratamento</div>
+                <div class="competencia-chip">✔ Modelagem de Dados</div>
+                <div class="competencia-chip">✔ Linguagem DAX</div>
+                <div class="competencia-chip">✔ Dashboards Interativos</div>
             </div>
 
             <div>
@@ -378,7 +558,7 @@
                     <div class="assinatura-box">
                         <div class="linha"></div>
                         <p>EWERTON RENATO DA SILVA DE FRANCA</p>
-                        <p>INSTRUTOR</p>
+                        <p>INSTRUTOR / PROFESSOR</p>
                     </div>
                     <div class="assinatura-box">
                         <div class="linha"></div>
@@ -396,46 +576,63 @@
 
     <!-- PÁGINA 2: CONTEÚDO PROGRAMÁTICO (VERSO) -->
     <div class="certificado">
-        <!-- PAINEL LATERAL DASHBOARD POWER BI (VERDE) -->
+        <!-- PAINEL LATERAL DASHBOARD POWER BI -->
         <div class="barra-lateral-pbi">
             <div class="dashboard-card">
-                <svg class="svg-grafico" viewBox="0 0 100 70">
+                <div class="pbi-logo-box" title="Power BI">
+                    <div class="pbi-bar" style="height: 6px;"></div>
+                    <div class="pbi-bar" style="height: 11px;"></div>
+                    <div class="pbi-bar" style="height: 16px;"></div>
+                </div>
+
+                <svg class="svg-grafico" viewBox="0 0 100 55">
                     <line x1="5" y1="5" x2="95" y2="5" stroke="#1b4d20" stroke-width="0.5" />
                     <line x1="5" y1="20" x2="95" y2="20" stroke="#1b4d20" stroke-width="0.5" />
                     <line x1="5" y1="35" x2="95" y2="35" stroke="#1b4d20" stroke-width="0.5" />
-                    <line x1="5" y1="50" x2="95" y2="50" stroke="#1b4d20" stroke-width="0.5" />
                     
-                    <rect x="10" y="45" width="7" height="15" fill="#1e5e27" />
-                    <rect x="22" y="38" width="7" height="22" fill="#1e5e27" />
-                    <rect x="34" y="30" width="7" height="30" fill="#1e5e27" />
-                    <rect x="46" y="40" width="7" height="20" fill="#1e5e27" />
-                    <rect x="58" y="25" width="7" height="35" fill="#1e5e27" />
-                    <rect x="70" y="15" width="7" height="45" fill="#2e7d32" />
-                    <rect x="82" y="18" width="7" height="42" fill="#2e7d32" />
+                    <rect x="10" y="30" width="7" height="15" fill="#1e5e27" />
+                    <rect x="22" y="23" width="7" height="22" fill="#1e5e27" />
+                    <rect x="34" y="15" width="7" height="30" fill="#1e5e27" />
+                    <rect x="46" y="25" width="7" height="20" fill="#1e5e27" />
+                    <rect x="58" y="10" width="7" height="35" fill="#1e5e27" />
+                    <rect x="70" y="5" width="7" height="40" fill="#2e7d32" />
+                    <rect x="82" y="8" width="7" height="37" fill="#2e7d32" />
 
-                    <polyline points="13,42 25,32 37,36 49,26 61,18 73,10 85,22 93,6" fill="none" stroke="#66bb6a" stroke-width="2" />
-                    <circle cx="13" cy="42" r="2" fill="#81c784" />
-                    <circle cx="25" cy="32" r="2" fill="#81c784" />
-                    <circle cx="37" cy="36" r="2" fill="#81c784" />
-                    <circle cx="49" cy="26" r="2" fill="#81c784" />
-                    <circle cx="61" cy="18" r="2" fill="#81c784" />
-                    <circle cx="73" cy="10" r="2" fill="#81c784" />
-                    <circle cx="85" cy="22" r="2" fill="#81c784" />
-                    <circle cx="93" cy="6" r="2" fill="#81c784" />
+                    <polyline points="13,27 25,17 37,21 49,11 61,8 73,3 85,15 93,4" fill="none" stroke="#66bb6a" stroke-width="2" />
+                    <circle cx="13" cy="27" r="1.5" fill="#81c784" />
+                    <circle cx="25" cy="17" r="1.5" fill="#81c784" />
+                    <circle cx="37" cy="21" r="1.5" fill="#81c784" />
+                    <circle cx="49" cy="11" r="1.5" fill="#81c784" />
+                    <circle cx="61" cy="8" r="1.5" fill="#81c784" />
+                    <circle cx="73" cy="3" r="1.5" fill="#81c784" />
+                    <circle cx="85" cy="15" r="1.5" fill="#81c784" />
                 </svg>
 
-                <div style="width: 100%; height: 1px; background: #2e7d32; margin: 4px 0;"></div>
+                <div class="selo-autenticidade">
+                    VERSO
+                    <span>CONTEÚDO</span>
+                </div>
 
-                <svg class="svg-grafico" viewBox="0 0 100 50">
-                    <rect x="5" y="35" width="6" height="10" fill="#1e5e27" />
-                    <rect x="14" y="28" width="6" height="17" fill="#1e5e27" />
-                    <rect x="23" y="20" width="6" height="25" fill="#2e7d32" />
-                    <rect x="32" y="12" width="6" height="33" fill="#66bb6a" />
+                <div class="kpi-container">
+                    <div class="kpi-card">
+                        <div class="kpi-label">Módulos</div>
+                        <div class="kpi-valor">6 Módulos</div>
+                    </div>
+                    <div class="kpi-card">
+                        <div class="kpi-label">Aproveitamento</div>
+                        <div class="kpi-valor">100%</div>
+                    </div>
+                </div>
 
-                    <path d="M 72 25 L 72 5 A 20 20 0 0 1 92 25 Z" fill="#81c784" />
-                    <path d="M 72 25 L 92 25 A 20 20 0 0 1 80 44 Z" fill="#4caf50" />
-                    <path d="M 72 25 L 80 44 A 20 20 0 1 1 72 5 Z" fill="#1b5e20" />
-                    <circle cx="72" cy="25" r="9" fill="#0e3014" />
+                <svg class="svg-grafico" viewBox="0 0 100 40">
+                    <rect x="5" y="25" width="5" height="10" fill="#1e5e27" />
+                    <rect x="13" y="18" width="5" height="17" fill="#1e5e27" />
+                    <rect x="21" y="10" width="5" height="25" fill="#2e7d32" />
+
+                    <path d="M 72 20 L 72 3 A 17 17 0 0 1 89 20 Z" fill="#81c784" />
+                    <path d="M 72 20 L 89 20 A 17 17 0 0 1 78 36 Z" fill="#4caf50" />
+                    <path d="M 72 20 L 78 36 A 17 17 0 1 1 72 3 Z" fill="#1b5e20" />
+                    <circle cx="72" cy="20" r="7" fill="#0e3014" />
                 </svg>
             </div>
         </div>
