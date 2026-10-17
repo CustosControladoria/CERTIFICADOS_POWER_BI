@@ -115,31 +115,24 @@
             letter-spacing: 1px;
         }
 
-        .content {
-            font-size: 12px;
+        /* Texto do Certificado em Parágrafo Único e Justificado */
+        .content-justificado {
+            font-size: 11.5px;
             color: #333;
-            line-height: 1.4;
-            margin: 2px 0;
+            line-height: 1.7;
+            text-align: justify;
+            margin: 15px 10px;
         }
 
-        .nome-aluno {
-            font-size: 18px;
+        .nome-aluno-inline {
             font-weight: bold;
-            color: #000;
-            border-bottom: 2px solid #2e7d32;
-            display: inline-block;
-            min-width: 300px;
-            padding-bottom: 2px;
-            margin: 6px 0;
+            color: #000000;
             text-transform: uppercase;
         }
 
-        .curso {
-            font-size: 13px;
+        .curso-inline {
             font-weight: bold;
             color: #2e7d32;
-            display: block;
-            margin: 3px 0;
         }
 
         /* Assinaturas */
@@ -279,15 +272,8 @@
             <h2>DE CONCLUSÃO</h2>
         </div>
 
-        <div class="content">
-            <p style="margin-top: 4px;">Certificamos que o aluno:</p>
-            <div class="nome-aluno" id="nomeExibido">[NOME DO ALUNO]</div>
-            <p>
-                concluiu com êxito o curso livre de:<br>
-                <span class="curso">POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL</span>
-                com 100% de aproveitamento na data de 22/08/2026 a 26/08/2026<br>
-                com carga horária de 20 horas.
-            </p>
+        <div class="content-justificado">
+            Certificamos que <span class="nome-aluno-inline" id="nomeExibido">[NOME DO ALUNO]</span> concluiu com êxito o curso de <span class="curso-inline">POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL</span> com 100% de aproveitamento no período de 22/08/2026 a 26/08/2026 com carga horária de 20 horas.
         </div>
 
         <div>
