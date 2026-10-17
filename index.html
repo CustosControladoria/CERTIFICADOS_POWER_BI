@@ -76,7 +76,7 @@
             height: 148mm;
             background: #ffffff;
             border: 5px solid #2e7d32;
-            padding: 12px 18px 0 0; /* Espaço para a barra lateral */
+            padding: 12px 18px 0 0;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -86,69 +86,41 @@
             page-break-after: always;
         }
 
-        /* Barra Lateral com Tema Power BI (Gráficos) */
+        /* Painel Lateral Dashboard Power BI Baseado na Imagem */
         .barra-lateral-pbi {
-            width: 38mm;
+            width: 44mm;
             height: 100%;
-            background: linear-gradient(180deg, #1e5623 0%, #1b5e20 40%, #0d3810 100%);
+            background: #001f3f;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 5px;
-            position: relative;
+            padding: 8px 6px;
             margin-right: 15px;
-            box-shadow: 2px 0 6px rgba(0,0,0,0.15);
+            box-shadow: 2px 0 6px rgba(0,0,0,0.25);
+            border-right: 2px solid #0056b3;
             -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
 
-        /* Selo Central no lugar de EAD */
-        .selo-pbi {
-            background-color: #f2c811;
-            color: #1b5e20;
-            font-weight: bold;
-            font-size: 8pt;
-            padding: 6px 4px;
-            border-radius: 4px;
-            text-align: center;
-            width: 90%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border: 1px solid #d4af07;
-            line-height: 1.2;
-        }
-
-        .selo-pbi span {
-            display: block;
-            font-size: 6.5pt;
-            color: #000;
-            font-weight: normal;
-        }
-
-        /* Ícones Ilustrativos de Gráficos (Power BI) */
-        .grafico-icones {
+        /* Card Interno do Dashboard */
+        .dashboard-card {
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 30, 60, 0.85);
+            border: 1px solid #00a8ff;
+            border-radius: 6px;
+            padding: 6px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            justify-content: space-around;
             align-items: center;
-            opacity: 0.85;
+            box-shadow: inset 0 0 8px rgba(0, 168, 255, 0.2);
         }
 
-        .barras-grafico {
-            display: flex;
-            align-items: flex-end;
-            gap: 3px;
-            height: 28px;
-        }
-
-        .barra-col {
-            background-color: #f2c811;
-            width: 5px;
-            border-radius: 1px 1px 0 0;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
+        .svg-grafico {
+            width: 100%;
+            height: auto;
         }
 
         /* Conteúdo Principal à Direita da Barra */
@@ -290,7 +262,7 @@
             color: #ffffff !important;
             font-size: 6pt;
             padding: 4px 10px;
-            margin-left: -53px; /* Cobre toda a extensão */
+            margin-left: -59px;
             margin-right: -18px;
             text-align: left;
             white-space: nowrap;
@@ -340,29 +312,54 @@
 
     <!-- PÁGINA 1: CERTIFICADO (FRENTE) -->
     <div class="certificado">
-        <!-- BARRA LATERAL TEMA POWER BI -->
+        <!-- PAINEL LATERAL DASHBOARD POWER BI -->
         <div class="barra-lateral-pbi">
-            <div class="grafico-icones">
-                <div class="barras-grafico">
-                    <div class="barra-col" style="height: 12px;"></div>
-                    <div class="barra-col" style="height: 22px;"></div>
-                    <div class="barra-col" style="height: 16px;"></div>
-                    <div class="barra-col" style="height: 28px;"></div>
-                </div>
-            </div>
+            <div class="dashboard-card">
+                <!-- Gráfico de Linhas sobre Colunas (Topo) -->
+                <svg class="svg-grafico" viewBox="0 0 100 70">
+                    <line x1="5" y1="5" x2="95" y2="5" stroke="#003366" stroke-width="0.5" />
+                    <line x1="5" y1="20" x2="95" y2="20" stroke="#003366" stroke-width="0.5" />
+                    <line x1="5" y1="35" x2="95" y2="35" stroke="#003366" stroke-width="0.5" />
+                    <line x1="5" y1="50" x2="95" y2="50" stroke="#003366" stroke-width="0.5" />
+                    
+                    <!-- Colunas Verificadas -->
+                    <rect x="10" y="45" width="7" height="15" fill="#003b73" />
+                    <rect x="22" y="38" width="7" height="22" fill="#003b73" />
+                    <rect x="34" y="30" width="7" height="30" fill="#003b73" />
+                    <rect x="46" y="40" width="7" height="20" fill="#003b73" />
+                    <rect x="58" y="25" width="7" height="35" fill="#003b73" />
+                    <rect x="70" y="15" width="7" height="45" fill="#004b93" />
+                    <rect x="82" y="18" width="7" height="42" fill="#004b93" />
 
-            <div class="selo-pbi">
-                POWER BI
-                <span>CONTÁBIL SHEETS</span>
-            </div>
+                    <!-- Linha do Gráfico -->
+                    <polyline points="13,42 25,32 37,36 49,26 61,18 73,10 85,22 93,6" fill="none" stroke="#00d2ff" stroke-width="2" />
+                    <circle cx="13" cy="42" r="2" fill="#00d2ff" />
+                    <circle cx="25" cy="32" r="2" fill="#00d2ff" />
+                    <circle cx="37" cy="36" r="2" fill="#00d2ff" />
+                    <circle cx="49" cy="26" r="2" fill="#00d2ff" />
+                    <circle cx="61" cy="18" r="2" fill="#00d2ff" />
+                    <circle cx="73" cy="10" r="2" fill="#00d2ff" />
+                    <circle cx="85" cy="22" r="2" fill="#00d2ff" />
+                    <circle cx="93" cy="6" r="2" fill="#00d2ff" />
+                </svg>
 
-            <div class="grafico-icones">
-                <div class="barras-grafico">
-                    <div class="barra-col" style="height: 25px;"></div>
-                    <div class="barra-col" style="height: 18px;"></div>
-                    <div class="barra-col" style="height: 22px;"></div>
-                    <div class="barra-col" style="height: 10px;"></div>
-                </div>
+                <!-- Divisor estilo Dashboard -->
+                <div style="width: 100%; height: 1px; background: #0056b3; margin: 4px 0;"></div>
+
+                <!-- Gráfico de Rosca/Pizza + Barras Menores (Base) -->
+                <svg class="svg-grafico" viewBox="0 0 100 50">
+                    <!-- Barras esquerdas -->
+                    <rect x="5" y="35" width="6" height="10" fill="#0056b3" />
+                    <rect x="14" y="28" width="6" height="17" fill="#0056b3" />
+                    <rect x="23" y="20" width="6" height="25" fill="#007bff" />
+                    <rect x="32" y="12" width="6" height="33" fill="#00d2ff" />
+
+                    <!-- Gráfico de Pizza/Rosca estilo Power BI -->
+                    <path d="M 72 25 L 72 5 A 20 20 0 0 1 92 25 Z" fill="#00d2ff" />
+                    <path d="M 72 25 L 92 25 A 20 20 0 0 1 80 44 Z" fill="#0099ff" />
+                    <path d="M 72 25 L 80 44 A 20 20 0 1 1 72 5 Z" fill="#004080" />
+                    <circle cx="72" cy="25" r="9" fill="#001830" />
+                </svg>
             </div>
         </div>
 
@@ -400,27 +397,47 @@
 
     <!-- PÁGINA 2: CONTEÚDO PROGRAMÁTICO (VERSO) -->
     <div class="certificado">
-        <!-- BARRA LATERAL TEMA POWER BI -->
+        <!-- PAINEL LATERAL DASHBOARD POWER BI -->
         <div class="barra-lateral-pbi">
-            <div class="grafico-icones">
-                <div class="barras-grafico">
-                    <div class="barra-col" style="height: 14px;"></div>
-                    <div class="barra-col" style="height: 20px;"></div>
-                    <div class="barra-col" style="height: 26px;"></div>
-                </div>
-            </div>
+            <div class="dashboard-card">
+                <svg class="svg-grafico" viewBox="0 0 100 70">
+                    <line x1="5" y1="5" x2="95" y2="5" stroke="#003366" stroke-width="0.5" />
+                    <line x1="5" y1="20" x2="95" y2="20" stroke="#003366" stroke-width="0.5" />
+                    <line x1="5" y1="35" x2="95" y2="35" stroke="#003366" stroke-width="0.5" />
+                    <line x1="5" y1="50" x2="95" y2="50" stroke="#003366" stroke-width="0.5" />
+                    
+                    <rect x="10" y="45" width="7" height="15" fill="#003b73" />
+                    <rect x="22" y="38" width="7" height="22" fill="#003b73" />
+                    <rect x="34" y="30" width="7" height="30" fill="#003b73" />
+                    <rect x="46" y="40" width="7" height="20" fill="#003b73" />
+                    <rect x="58" y="25" width="7" height="35" fill="#003b73" />
+                    <rect x="70" y="15" width="7" height="45" fill="#004b93" />
+                    <rect x="82" y="18" width="7" height="42" fill="#004b93" />
 
-            <div class="selo-pbi">
-                POWER BI
-                <span>CONTEÚDO</span>
-            </div>
+                    <polyline points="13,42 25,32 37,36 49,26 61,18 73,10 85,22 93,6" fill="none" stroke="#00d2ff" stroke-width="2" />
+                    <circle cx="13" cy="42" r="2" fill="#00d2ff" />
+                    <circle cx="25" cy="32" r="2" fill="#00d2ff" />
+                    <circle cx="37" cy="36" r="2" fill="#00d2ff" />
+                    <circle cx="49" cy="26" r="2" fill="#00d2ff" />
+                    <circle cx="61" cy="18" r="2" fill="#00d2ff" />
+                    <circle cx="73" cy="10" r="2" fill="#00d2ff" />
+                    <circle cx="85" cy="22" r="2" fill="#00d2ff" />
+                    <circle cx="93" cy="6" r="2" fill="#00d2ff" />
+                </svg>
 
-            <div class="grafico-icones">
-                <div class="barras-grafico">
-                    <div class="barra-col" style="height: 22px;"></div>
-                    <div class="barra-col" style="height: 15px;"></div>
-                    <div class="barra-col" style="height: 28px;"></div>
-                </div>
+                <div style="width: 100%; height: 1px; background: #0056b3; margin: 4px 0;"></div>
+
+                <svg class="svg-grafico" viewBox="0 0 100 50">
+                    <rect x="5" y="35" width="6" height="10" fill="#0056b3" />
+                    <rect x="14" y="28" width="6" height="17" fill="#0056b3" />
+                    <rect x="23" y="20" width="6" height="25" fill="#007bff" />
+                    <rect x="32" y="12" width="6" height="33" fill="#00d2ff" />
+
+                    <path d="M 72 25 L 72 5 A 20 20 0 0 1 92 25 Z" fill="#00d2ff" />
+                    <path d="M 72 25 L 92 25 A 20 20 0 0 1 80 44 Z" fill="#0099ff" />
+                    <path d="M 72 25 L 80 44 A 20 20 0 1 1 72 5 Z" fill="#004080" />
+                    <circle cx="72" cy="25" r="9" fill="#001830" />
+                </svg>
             </div>
         </div>
 
