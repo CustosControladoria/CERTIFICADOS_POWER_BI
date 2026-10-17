@@ -75,16 +75,90 @@
             width: 210mm;
             height: 148mm;
             background: #ffffff;
-            border: 6px solid #2e7d32;
-            padding: 15px 25px 0 25px;
+            border: 5px solid #2e7d32;
+            padding: 12px 18px 0 0; /* Espaço para a barra lateral */
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             justify-content: space-between;
-            text-align: center;
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
             position: relative;
             overflow: hidden;
             page-break-after: always;
+        }
+
+        /* Barra Lateral com Tema Power BI (Gráficos) */
+        .barra-lateral-pbi {
+            width: 38mm;
+            height: 100%;
+            background: linear-gradient(180deg, #1e5623 0%, #1b5e20 40%, #0d3810 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 5px;
+            position: relative;
+            margin-right: 15px;
+            box-shadow: 2px 0 6px rgba(0,0,0,0.15);
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Selo Central no lugar de EAD */
+        .selo-pbi {
+            background-color: #f2c811;
+            color: #1b5e20;
+            font-weight: bold;
+            font-size: 8pt;
+            padding: 6px 4px;
+            border-radius: 4px;
+            text-align: center;
+            width: 90%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid #d4af07;
+            line-height: 1.2;
+        }
+
+        .selo-pbi span {
+            display: block;
+            font-size: 6.5pt;
+            color: #000;
+            font-weight: normal;
+        }
+
+        /* Ícones Ilustrativos de Gráficos (Power BI) */
+        .grafico-icones {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+            opacity: 0.85;
+        }
+
+        .barras-grafico {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 28px;
+        }
+
+        .barra-col {
+            background-color: #f2c811;
+            width: 5px;
+            border-radius: 1px 1px 0 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        /* Conteúdo Principal à Direita da Barra */
+        .corpo-certificado {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            height: 100%;
         }
 
         .header {
@@ -94,20 +168,20 @@
         }
 
         .logo {
-            max-width: 130px;
+            max-width: 120px;
             height: auto;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .header h1 {
-            font-size: 20px;
+            font-size: 19px;
             color: #1a1a1a;
             margin: 0;
             letter-spacing: 1.5px;
         }
 
         .header h2 {
-            font-size: 12px;
+            font-size: 11px;
             color: #2e7d32;
             margin-top: 1px;
             margin-bottom: 0;
@@ -115,13 +189,13 @@
             letter-spacing: 1px;
         }
 
-        /* Texto do Certificado em Parágrafo Único e Justificado */
+        /* Texto do Certificado Justificado */
         .content-justificado {
-            font-size: 11.5px;
+            font-size: 10.5px;
             color: #333;
-            line-height: 1.7;
+            line-height: 1.65;
             text-align: justify;
-            margin: 15px 10px;
+            margin: 10px 5px;
         }
 
         .nome-aluno-inline {
@@ -140,19 +214,19 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 0 15px;
-            margin-top: 5px;
-            margin-bottom: 8px;
+            padding: 0 10px;
+            margin-top: 4px;
+            margin-bottom: 6px;
         }
 
         .assinatura-box {
             text-align: center;
-            width: 220px;
+            width: 175px;
         }
 
         .assinatura-box p {
             margin: 2px 0;
-            font-size: 9px;
+            font-size: 8.5px;
             color: #000000;
             white-space: nowrap;
         }
@@ -178,46 +252,46 @@
         .grid-conteudo {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 8px 12px;
+            gap: 6px 8px;
             text-align: left;
-            margin-top: 6px;
+            margin-top: 4px;
         }
 
         .modulo {
             background-color: #f9f9f9;
             border-left: 3px solid #2e7d32;
-            padding: 5px 6px;
+            padding: 4px 5px;
             border-radius: 2px;
         }
 
         .modulo-titulo {
-            font-size: 8pt;
+            font-size: 7.5pt;
             font-weight: bold;
             color: #2e7d32;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
             text-transform: uppercase;
         }
 
         .modulo-lista {
             margin: 0;
-            padding-left: 11px;
-            font-size: 6.5pt;
+            padding-left: 10px;
+            font-size: 6pt;
             color: #333333;
-            line-height: 1.25;
+            line-height: 1.2;
         }
 
         .modulo-lista li {
-            margin-bottom: 1.5px;
+            margin-bottom: 1px;
         }
 
         /* Barra Verde de Rodapé */
         .rodapé-barra {
             background-color: #2e7d32 !important;
             color: #ffffff !important;
-            font-size: 6.5pt;
-            padding: 5px 15px;
-            margin-left: -25px;
-            margin-right: -25px;
+            font-size: 6pt;
+            padding: 4px 10px;
+            margin-left: -53px; /* Cobre toda a extensão */
+            margin-right: -18px;
             text-align: left;
             white-space: nowrap;
             -webkit-print-color-adjust: exact;
@@ -266,115 +340,169 @@
 
     <!-- PÁGINA 1: CERTIFICADO (FRENTE) -->
     <div class="certificado">
-        <div class="header">
-            <img src="https://lh3.googleusercontent.com/d/1CHM8dmcBfzfmAz3c4s-DYGBr45iEKopz" alt="Contábil Sheets Logo" class="logo">
-            <h1>CERTIFICADO</h1>
-            <h2>DE CONCLUSÃO</h2>
-        </div>
-
-        <div class="content-justificado">
-            Certificamos que <span class="nome-aluno-inline" id="nomeExibido">[NOME DO ALUNO]</span> concluiu com êxito o curso de <span class="curso-inline">POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL</span> com 100% de aproveitamento no período de 22/08/2026 a 26/08/2026 com carga horária de 20 horas.
-        </div>
-
-        <div>
-            <div class="assinaturas">
-                <div class="assinatura-box">
-                    <div class="linha"></div>
-                    <p>EWERTON RENATO DA SILVA DE FRANCA</p>
-                    <p>INSTRUTOR</p>
-                </div>
-                <div class="assinatura-box">
-                    <div class="linha"></div>
-                    <p id="assinaturaAluno" class="nome-assinatura-aluno">SEU NOME COMPLETO</p>
-                    <p class="rotulo-aluno">PARTICIPANTE</p>
+        <!-- BARRA LATERAL TEMA POWER BI -->
+        <div class="barra-lateral-pbi">
+            <div class="grafico-icones">
+                <div class="barras-grafico">
+                    <div class="barra-col" style="height: 12px;"></div>
+                    <div class="barra-col" style="height: 22px;"></div>
+                    <div class="barra-col" style="height: 16px;"></div>
+                    <div class="barra-col" style="height: 28px;"></div>
                 </div>
             </div>
 
-            <div class="rodapé-barra">
-                Cidade: São Miguel dos Campos - AL, Endereço: Esther Soares Torres I, Qd A, 192 - CEP: 57245-052
+            <div class="selo-pbi">
+                POWER BI
+                <span>CONTÁBIL SHEETS</span>
+            </div>
+
+            <div class="grafico-icones">
+                <div class="barras-grafico">
+                    <div class="barra-col" style="height: 25px;"></div>
+                    <div class="barra-col" style="height: 18px;"></div>
+                    <div class="barra-col" style="height: 22px;"></div>
+                    <div class="barra-col" style="height: 10px;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="corpo-certificado">
+            <div class="header">
+                <img src="https://lh3.googleusercontent.com/d/1CHM8dmcBfzfmAz3c4s-DYGBr45iEKopz" alt="Contábil Sheets Logo" class="logo">
+                <h1>CERTIFICADO</h1>
+                <h2>DE CONCLUSÃO</h2>
+            </div>
+
+            <div class="content-justificado">
+                Certificamos que <span class="nome-aluno-inline" id="nomeExibido">[NOME DO ALUNO]</span> concluiu com êxito o curso de <span class="curso-inline">POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL</span> com 100% de aproveitamento no período de 22/08/2026 a 26/08/2026 com carga horária de 20 horas.
+            </div>
+
+            <div>
+                <div class="assinaturas">
+                    <div class="assinatura-box">
+                        <div class="linha"></div>
+                        <p>EWERTON RENATO DA SILVA DE FRANCA</p>
+                        <p>PROFESSOR</p>
+                    </div>
+                    <div class="assinatura-box">
+                        <div class="linha"></div>
+                        <p id="assinaturaAluno" class="nome-assinatura-aluno">SEU NOME COMPLETO</p>
+                        <p class="rotulo-aluno">ALUNO(A)</p>
+                    </div>
+                </div>
+
+                <div class="rodapé-barra">
+                    Cidade: São Miguel dos Campos - AL, Endereço: Esther Soares Torres I, Qd A, 192 - CEP: 57245-052
+                </div>
             </div>
         </div>
     </div>
 
     <!-- PÁGINA 2: CONTEÚDO PROGRAMÁTICO (VERSO) -->
     <div class="certificado">
-        <div class="header">
-            <img src="https://lh3.googleusercontent.com/d/1CHM8dmcBfzfmAz3c4s-DYGBr45iEKopz" alt="Contábil Sheets Logo" class="logo">
-            <h1>CONTEÚDO PROGRAMÁTICO</h1>
-            <h2>POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL</h2>
-        </div>
-
-        <div class="grid-conteudo">
-            <div class="modulo">
-                <div class="modulo-titulo">1. Introdução ao Power BI</div>
-                <ul class="modulo-lista">
-                    <li>Conceitos fundamentais</li>
-                    <li>Interface e principais ferramentas</li>
-                    <li>Importação de dados</li>
-                    <li>Conexão com diferentes fontes</li>
-                </ul>
+        <!-- BARRA LATERAL TEMA POWER BI -->
+        <div class="barra-lateral-pbi">
+            <div class="grafico-icones">
+                <div class="barras-grafico">
+                    <div class="barra-col" style="height: 14px;"></div>
+                    <div class="barra-col" style="height: 20px;"></div>
+                    <div class="barra-col" style="height: 26px;"></div>
+                </div>
             </div>
 
-            <div class="modulo">
-                <div class="modulo-titulo">2. Tratamento de Dados</div>
-                <ul class="modulo-lista">
-                    <li>Power Query</li>
-                    <li>Limpeza e organização</li>
-                    <li>Transformação de colunas</li>
-                    <li>Tipos de dados</li>
-                    <li>Mesclagem e combinação</li>
-                    <li>Atualização dos dados</li>
-                </ul>
+            <div class="selo-pbi">
+                POWER BI
+                <span>CONTEÚDO</span>
             </div>
 
-            <div class="modulo">
-                <div class="modulo-titulo">3. Modelagem de Dados</div>
-                <ul class="modulo-lista">
-                    <li>Relacionamento entre tabelas</li>
-                    <li>Estrutura do modelo</li>
-                    <li>Tabelas e campos</li>
-                    <li>Boas práticas de modelagem</li>
-                </ul>
-            </div>
-
-            <div class="modulo">
-                <div class="modulo-titulo">4. DAX e Medidas</div>
-                <ul class="modulo-lista">
-                    <li>Introdução ao DAX</li>
-                    <li>Criação de medidas</li>
-                    <li>Principais funções DAX</li>
-                    <li>Cálculos e indicadores</li>
-                    <li>KPI (Key Performance Indicator)</li>
-                </ul>
-            </div>
-
-            <div class="modulo">
-                <div class="modulo-titulo">5. Visualização e Dashboard</div>
-                <ul class="modulo-lista">
-                    <li>Criação de gráficos e visuais</li>
-                    <li>Filtros e segmentações</li>
-                    <li>Cartões e indicadores</li>
-                    <li>Formatação dos visuais</li>
-                    <li>Organização e design</li>
-                    <li>Construção do zero</li>
-                </ul>
-            </div>
-
-            <div class="modulo">
-                <div class="modulo-titulo">6. Análise e Publicação</div>
-                <ul class="modulo-lista">
-                    <li>Análise de dados</li>
-                    <li>Interpretação dos indicadores</li>
-                    <li>Atualização dos relatórios</li>
-                    <li>Publicação e compartilhamento</li>
-                    <li>Boas práticas de apresentação</li>
-                </ul>
+            <div class="grafico-icones">
+                <div class="barras-grafico">
+                    <div class="barra-col" style="height: 22px;"></div>
+                    <div class="barra-col" style="height: 15px;"></div>
+                    <div class="barra-col" style="height: 28px;"></div>
+                </div>
             </div>
         </div>
 
-        <div>
-            <div class="rodapé-barra">
-                Cidade: São Miguel dos Campos - AL, Endereço: Esther Soares Torres I, Qd A, 192 - CEP: 57245-052
+        <div class="corpo-certificado">
+            <div class="header">
+                <img src="https://lh3.googleusercontent.com/d/1CHM8dmcBfzfmAz3c4s-DYGBr45iEKopz" alt="Contábil Sheets Logo" class="logo">
+                <h1>CONTEÚDO PROGRAMÁTICO</h1>
+                <h2>POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL</h2>
+            </div>
+
+            <div class="grid-conteudo">
+                <div class="modulo">
+                    <div class="modulo-titulo">1. Introdução ao Power BI</div>
+                    <ul class="modulo-lista">
+                        <li>Conceitos fundamentais</li>
+                        <li>Interface e ferramentas</li>
+                        <li>Importação de dados</li>
+                        <li>Conexão com fontes</li>
+                    </ul>
+                </div>
+
+                <div class="modulo">
+                    <div class="modulo-titulo">2. Tratamento de Dados</div>
+                    <ul class="modulo-lista">
+                        <li>Power Query</li>
+                        <li>Limpeza e organização</li>
+                        <li>Transformação de colunas</li>
+                        <li>Tipos de dados</li>
+                        <li>Mesclagem e combinação</li>
+                        <li>Atualização dos dados</li>
+                    </ul>
+                </div>
+
+                <div class="modulo">
+                    <div class="modulo-titulo">3. Modelagem de Dados</div>
+                    <ul class="modulo-lista">
+                        <li>Relacionamento entre tabelas</li>
+                        <li>Estrutura do modelo</li>
+                        <li>Tabelas e campos</li>
+                        <li>Boas práticas de modelagem</li>
+                    </ul>
+                </div>
+
+                <div class="modulo">
+                    <div class="modulo-titulo">4. DAX e Medidas</div>
+                    <ul class="modulo-lista">
+                        <li>Introdução ao DAX</li>
+                        <li>Criação de medidas</li>
+                        <li>Principais funções DAX</li>
+                        <li>Cálculos e indicadores</li>
+                        <li>KPI (Key Performance Indicator)</li>
+                    </ul>
+                </div>
+
+                <div class="modulo">
+                    <div class="modulo-titulo">5. Visualização e Dashboard</div>
+                    <ul class="modulo-lista">
+                        <li>Criação de gráficos e visuais</li>
+                        <li>Filtros e segmentações</li>
+                        <li>Cartões e indicadores</li>
+                        <li>Formatação dos visuais</li>
+                        <li>Organização e design</li>
+                        <li>Construção do zero</li>
+                    </ul>
+                </div>
+
+                <div class="modulo">
+                    <div class="modulo-titulo">6. Análise e Publicação</div>
+                    <ul class="modulo-lista">
+                        <li>Análise de dados</li>
+                        <li>Interpretação dos indicadores</li>
+                        <li>Atualização dos relatórios</li>
+                        <li>Publicação e compartilhamento</li>
+                        <li>Boas práticas de apresentação</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="rodapé-barra">
+                    Cidade: São Miguel dos Campos - AL, Endereço: Esther Soares Torres I, Qd A, 192 - CEP: 57245-052
+                </div>
             </div>
         </div>
     </div>
