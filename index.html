@@ -76,7 +76,7 @@
             height: 148mm;
             background: #ffffff;
             border: 6px solid #2e7d32;
-            padding: 15px 25px 0 25px;
+            padding: 10px 25px 0 25px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -87,10 +87,13 @@
             page-break-after: always;
         }
 
+        /* Ajuste para descer o título/cabeçalho */
         .header {
             display: flex;
             flex-direction: column;
             align-items: center;
+            margin-top: 15px;
+            margin-bottom: 25px;
         }
 
         .logo {
@@ -115,12 +118,12 @@
             letter-spacing: 1px;
         }
 
-        /* Texto com fonte tamanho 14 e alinhamento justificado */
+        /* Texto centralizado e ajustado */
         .content {
             font-size: 14px;
             color: #333;
             line-height: 1.5;
-            margin: 10px auto;
+            margin: 0 auto;
             max-width: 480px;
             text-align: justify;
         }
@@ -142,14 +145,14 @@
             display: inline;
         }
 
-        /* Assinaturas */
+        /* Ajuste para subir as assinaturas */
         .assinaturas {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             padding: 0 15px;
             margin-top: 5px;
-            margin-bottom: 8px;
+            margin-bottom: 25px;
         }
 
         .assinatura-box {
@@ -305,7 +308,7 @@
 
     <!-- PÁGINA 2: CONTEÚDO PROGRAMÁTICO (VERSO) -->
     <div class="certificado">
-        <div class="header">
+        <div class="header" style="margin-top: 10px; margin-bottom: 10px;">
             <img src="https://lh3.googleusercontent.com/d/1CHM8dmcBfzfmAz3c4s-DYGBr45iEKopz" alt="Contábil Sheets Logo" class="logo">
             <h1>CONTEÚDO PROGRAMÁTICO</h1>
             <h2>POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL</h2>
