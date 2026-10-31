@@ -29,6 +29,8 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             margin-bottom: 10px;
             text-align: center;
+            max-width: 600px;
+            width: 100%;
         }
 
         .form-container h2 {
@@ -38,25 +40,41 @@
             color: #000;
         }
 
-        .input-box {
+        .input-group {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
             gap: 10px;
+            align-items: center;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            width: 100%;
         }
 
         .form-container input {
             padding: 8px 12px;
-            width: 250px;
             font-size: 14px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            text-transform: uppercase;
             outline: none;
         }
 
+        #nomeInput {
+            width: 100%;
+            max-width: 400px;
+            text-transform: uppercase;
+        }
+
+        .data-input {
+            width: 190px;
+            text-align: center;
+        }
+
         .form-container button {
-            padding: 8px 16px;
+            padding: 10px 20px;
             font-size: 14px;
             background-color: #2e7d32;
             color: white;
@@ -64,6 +82,7 @@
             border-radius: 4px;
             cursor: pointer;
             font-weight: bold;
+            margin-top: 5px;
         }
 
         .form-container button:hover {
@@ -268,8 +287,12 @@
     <!-- Formulário do Aluno -->
     <div class="form-container">
         <h2>Emissão de Certificado</h2>
-        <div class="input-box">
+        <div class="input-group">
             <input type="text" id="nomeInput" placeholder="Digite seu nome completo">
+            <div class="input-row">
+                <input type="text" id="dataInicioInput" placeholder="Data Início (Ex: 31/10/2026)" class="data-input">
+                <input type="text" id="dataFimInput" placeholder="Data Término (Ex: 05/11/2026)" class="data-input">
+            </div>
             <button id="btnGerar" onclick="gerarEBaixarPDF()">Gerar e Baixar PDF</button>
         </div>
     </div>
@@ -283,7 +306,7 @@
         </div>
 
         <div class="content">
-            Certificamos que <span class="nome-aluno" id="nomeExibido">[NOME DO ALUNO]</span> concluiu com êxito o curso de <span class="curso">POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL</span> com 100% de aproveitamento no período de 14/11/2026 a 05/12/2026 com carga horária de 20 horas.
+            Certificamos que <span class="nome-aluno" id="nomeExibido">[NOME DO ALUNO]</span> concluiu com êxito o curso de <span class="curso">POWER BI - DO ZERO AO DASHBOARD PROFISSIONAL</span> com 100% de aproveitamento no período de <span id="dataInicioExibida">31/10/2026</span> a <span id="dataFimExibida">05/11/2026</span> com carga horária de 20 horas.
         </div>
 
         <div>
@@ -392,17 +415,27 @@
     <script>
         function gerarEBaixarPDF() {
             const nomeInput = document.getElementById('nomeInput').value.trim();
+            const dataInicioInput = document.getElementById('dataInicioInput').value.trim();
+            const dataFimInput = document.getElementById('dataFimInput').value.trim();
 
             if (nomeInput === "") {
-                alert("Por favor, digite seu nome completo.");
+                alert("Por favor, digite o nome completo do aluno.");
                 return;
             }
 
             const nomeMaiusculo = nomeInput.toUpperCase();
 
-            // Atualiza os dados no certificado e no campo de assinatura
+            // Atualiza o nome no certificado e na assinatura
             document.getElementById('nomeExibido').innerText = nomeMaiusculo;
             document.getElementById('assinaturaAluno').innerText = nomeMaiusculo;
+
+            // Atualiza as datas caso o usuário tenha preenchido
+            if (dataInicioInput !== "") {
+                document.getElementById('dataInicioExibida').innerText = dataInicioInput;
+            }
+            if (dataFimInput !== "") {
+                document.getElementById('dataFimExibida').innerText = dataFimInput;
+            }
 
             // Abre a janela para Salvar em PDF / Imprimir
             window.print();
